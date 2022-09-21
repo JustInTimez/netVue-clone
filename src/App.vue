@@ -1,18 +1,25 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <nav class="navbar navbar-dark">
+        <!-- <img alt="netVue logo" class="logo" src="@/assets/netflix-logo.png"> -->
+        <div id="navHeading" class="navbar-brand">
+          <a class="navbar-brand" href="#">
+            <img src="@/assets/netflix-logo.png" alt="netVue Logo" width="200" height="100">
+          </a>
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+
+
+
+        </div>
+        <!-- Remove these links? Won't be needed to navigate between the two as it will be automated (logging in and out) -->        
+        <RouterLink to="/" hidden>Login</RouterLink>
+        <RouterLink to="/dashboard" hidden>Dashboard</RouterLink>
       </nav>
     </div>
   </header>
@@ -27,15 +34,15 @@ header {
 }
 
 .logo {
-  display: block;
-  margin: 0 auto 2rem;
+  height: 100px;
+  width: 200px;
+  vertical-align: middle;
 }
 
 nav {
   width: 100%;
   font-size: 12px;
   text-align: center;
-  margin-top: 2rem;
 }
 
 nav a.router-link-exact-active {
@@ -56,7 +63,8 @@ nav a:first-of-type {
   border: 0;
 }
 
-@media (min-width: 1024px) {
+
+@media (min-width: 740px) {
   header {
     display: flex;
     place-items: center;
@@ -64,7 +72,9 @@ nav a:first-of-type {
   }
 
   .logo {
-    margin: 0 2rem 0 0;
+    height: 20px;
+    width: 75px;
+
   }
 
   header .wrapper {
@@ -77,9 +87,14 @@ nav a:first-of-type {
     text-align: left;
     margin-left: -1rem;
     font-size: 1rem;
-
     padding: 1rem 0;
-    margin-top: 1rem;
+  }
+}
+
+@media (min-width: 440px) {
+  .logo {
+  height: 20px;
+  width: 75px;
   }
 }
 </style>
