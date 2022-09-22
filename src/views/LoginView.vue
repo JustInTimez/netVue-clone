@@ -4,15 +4,12 @@
       <form @submit.prevent="submit">
         <h2 class="mb-3">Sign In</h2>
         <div class="input">
-          <label for="email">Email or phone number</label>
-          <input class="form-control" type="text" name="email" placeholder="email@address.com" />
+          <label for="email"></label>
+          <input class="form-control" type="text" name="email" placeholder="Email or phone number" />
         </div>
         <div class="input">
-          <label for="password">Password</label>
-          <input class="form-control" type="password" name="password" placeholder="password123" />
-        </div>
-        <div class="alternative-option mt-4">
-          New to Netflix? <a href="#">Sign up now</a>
+          <label for="password"></label>
+          <input class="form-control" type="password" name="password" placeholder="Password" />
         </div>
         <button type="submit" class="mt-4 btn-pers" id="login_button">
           Sign In
