@@ -47,9 +47,19 @@ button {
   border: 0;
 }
 
+@media (max-width: 1024px) {
+  .container {
+  margin: 0 auto;
+  padding: 0 5%;
+}
+}
 
-
-
+@media (max-width: 740px) {
+  .container {
+  margin: 0 auto;
+  padding: 0 5%;
+}
+}
 
 
 
