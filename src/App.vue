@@ -1,17 +1,26 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import Header from './components/Header.vue';
+
 </script>
 
 <template>
-  <header>
+  <Header></Header>
 
-    <!-- <nav>
+
+  <div class="container-fluid myContainer">
+  <!-- Views in here -->
+
+  </div>
+
+  <!-- previous footer here -->
+
+  <!-- <header>
+    <nav>
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/about">About</RouterLink>
-    </nav> -->
-
-  </header>
-
+    </nav>
+  </header> -->
   <RouterView />
 </template>
 
