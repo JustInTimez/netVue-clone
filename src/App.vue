@@ -1,5 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import Footer from "../src/components/Footer.vue"
 </script>
 
 <template>
@@ -18,6 +19,8 @@ import { RouterLink, RouterView } from 'vue-router'
     </div>
   </header>
   <RouterView />
+  <!-- Current Footer issue displaying wierdly when uncommented below -->
+  <!-- <Footer></Footer> -->
 </template>
 
 <style scoped>

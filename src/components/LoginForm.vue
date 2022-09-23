@@ -13,7 +13,7 @@
                 <input type="checkbox">
                 <label for="">Remember Me?</label>
             </div>
-
+            <span>Need help?</span>
         </div>
     </div>
 </template>
@@ -56,7 +56,7 @@
 .login-box .input-box button {
     border: none;
     padding: 15px;
-    margin: 50px 10px;
+    margin: 50px 10px 0 10px;
     background-color: red;
     color: white;
     font-size: 1em;
@@ -73,9 +73,10 @@
 
 .login-box .rememberMe-box {
     margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-
-
 
 input:focus,
 input[type="text"]:focus,
