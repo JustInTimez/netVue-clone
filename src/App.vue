@@ -1,12 +1,12 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import Footer from "../src/components/Footer.vue"
 </script>
 
 <template>
   <header>
     <div class="wrapper">
       <nav class="navbar navbar-dark">
-        <!-- <img alt="netVue logo" class="logo" src="@/assets/netflix-logo.png"> -->
         <div id="navHeading" class="navbar-brand">
           <a class="navbar-brand" href="#">
             <img src="@/assets/netflix-logo.png" class="logo" alt="netVue Logo" width="200" height="100">
@@ -19,6 +19,8 @@ import { RouterLink, RouterView } from 'vue-router'
     </div>
   </header>
   <RouterView />
+  <!-- Current Footer issue displaying wierdly when uncommented below -->
+  <!-- <Footer></Footer> -->
 </template>
 
 <style scoped>
@@ -39,19 +41,6 @@ nav {
   text-align: center;
 }
 
-.footer-links {
-  font-size: 13px;
-  position: relative;
-  bottom: 0;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
 
 nav a {
   display: inline-block;
@@ -93,7 +82,7 @@ nav a:first-of-type {
 
 @media (min-width: 440px) {
   .logo {
-  line-height: 45px;
+
   }
 }
 </style>
