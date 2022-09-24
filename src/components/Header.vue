@@ -1,3 +1,38 @@
+<script>
+    import { ref } from "vue"
+    export default {
+        setup() {
+            const navLinks = ref({
+                Home: {
+                    name: "Home",
+                    href: "/",
+                },
+                TvShows: {
+                    name: "TV Shows",
+                    href: "/about",
+                },
+                Movies: {
+                    name: "Movies",
+                    href: "#",
+                },
+                NewPopular: {
+                    name: "New & Popular",
+                    href: "#",
+                },
+                MyList: {
+                    name: "My List",
+                    href: "/my-list",
+                },
+                BrowseLang: {
+                    name: "Browse by Languages",
+                    href: "#",
+                }
+            })
+            return { navLinks }
+        }
+    }
+    </script>
+
 <template>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-center nav fixed-top">
         <div class="container-fluid">
@@ -51,38 +86,3 @@ a,
     transition: 0.4s;
 }
 </style>
-
-<script>
-import { ref } from "vue"
-export default {
-    setup() {
-        const navLinks = ref({
-            Home: {
-                name: "Home",
-                href: "/",
-            },
-            TvShows: {
-                name: "TV Shows",
-                href: "/about",
-            },
-            Movies: {
-                name: "Movies",
-                href: "#",
-            },
-            NewPopular: {
-                name: "New & Popular",
-                href: "#",
-            },
-            MyList: {
-                name: "My List",
-                href: "/my-list",
-            },
-            BrowseLang: {
-                name: "Browse by Languages",
-                href: "#",
-            }
-        })
-        return { navLinks }
-    }
-}
-</script>
