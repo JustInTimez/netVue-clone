@@ -10,15 +10,13 @@ import Footer from './components/Footer.vue'
   <Header></Header>
   <!-- <HomeView></HomeView> -->
 
-  <div class="container-fluid myContainer">
+  <!-- <div class="container-fluid myContainer"> -->
   <!-- Views in here --> 
   
 
-  </div>
+  <!-- </div> -->
 
-  <!-- previous footer here -->
   <Footer></Footer>
-  
   <RouterView />
 </template>
 
