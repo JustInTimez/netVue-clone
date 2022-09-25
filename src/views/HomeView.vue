@@ -1,5 +1,15 @@
-<script setup>
-</script>
+<script>
+  import MoviesList from '../components/MoviesList.vue'
+  
+  export default {
+      data() {
+          return
+      },
+      components: {
+          MoviesList
+      }
+  }
+  </script>
 
 <template>
   <div class="jumbotron jumbotron-fluid">
@@ -17,6 +27,7 @@
         <p class="mb-4 fw-semibold lead">
           Check out these upcoming titles!
         </p>
+
         <div>
           <div class="baseButtons">
             <button class="butts fw-bold text-center">
@@ -30,6 +41,11 @@
       </div>
       <div class="fadeBot"></div>
     </div>
+  </div>
+  <div class="container-fluid">
+    <MoviesList label="Horror" pagination="0" previews="123,143,254,353,123" />
+    <MoviesList label="Romance" pagination="0" previews="123,143,254,353,123" />
+    <MoviesList label="Drama" pagination="0" previews="123,143,254,353,123" />
   </div>
 </template>
 
