@@ -3,7 +3,9 @@
   
   export default {
       data() {
-          return
+          return {
+            
+          }
       },
       components: {
           MoviesList
