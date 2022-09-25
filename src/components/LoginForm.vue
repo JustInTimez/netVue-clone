@@ -1,11 +1,45 @@
+<script>
+// export default {
+//     setup() {
+//         const userInput = document.getElementById('userInput')
+//         const passwordInput = document.getElementById('userPassword')
+
+//         // Check validation of input fields
+//         function checkValidaition() {
+//             console.log('sdfsdf');
+//             let userValid = false;
+//             let passwordValid = false;
+//             if (userInput.value.length != 0 && userInput.value.includes('@')) {
+//                 userValid = true;
+//                 document.getElementById("userError").classList.add("d-none");
+//             } else {
+//                 document.getElementById("userError").classList.remove("d-none");
+//             }
+//             if (passwordInput.value.length != 0) {
+//                 passwordValid = true;
+//                 document.getElementById("passwordError").classList.add("d-none");
+//             } else {
+//                 document.getElementById("passwordError").classList.remove("d-none");
+//             }
+//         }
+//     }
+// }
+
+
+</script>
+
 <template>
     <!-- <form @submit.prevent="submit"> -->
     <div class="login-box">
         <h2 class="mb-3 signInText">Sign In</h2>
         <div class="input-box">
-            <input type="text" placeholder="Email or phone number">
-            <input type="password" placeholder="Password">
-            <button type="button" class="">Sign In</button>
+            <input id="userInput" type="text" placeholder="Email or phone number">
+            <p id="userError" class="d-none errorMsg">Please enter your valid email or phone number</p>
+            <input id="userPassword" type="password" placeholder="Password">
+            <p id="passwordError" class="d-none errorMsg">Password incorrect</p>
+
+            <!-- @click="checkValidaition()" -->
+            <button type="button" class="btn btn-danger">Sign In</button>
         </div>
         <!-- Just for fun and to seem visually the same, not going to be tying this to localStorage -->
         <div class="rememberMe-box">
@@ -57,7 +91,6 @@
     border: none;
     padding: 15px;
     margin: 50px 10px 0 10px;
-    background-color: red;
     color: white;
     font-size: 1em;
     font-weight: bold;
@@ -98,8 +131,11 @@ input[type="color"]:focus,
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(129, 129, 129, 0.603);
     outline: 0 none;
 }
+
+.errorMsg {
+    margin-bottom: 0px;
+    color: orange;
+    text-align: center;
+    font-size: 13px;
+}
 </style>
-
-<script>
-
-</script>
