@@ -61,13 +61,9 @@
 }
 
 .login-box {
-    width: 40%;
-    position: absolute;
+    width: 50%;
     background-color: #0000008a;
-    top: 25%;
-    margin: 0 auto;
-    right: 0;
-    left: 0;
+    margin: 15% auto 0 auto;
     border-radius: 3px;
     color: white;
     padding: 20px;
@@ -138,4 +134,11 @@ input[type="color"]:focus,
     text-align: center;
     font-size: 13px;
 }
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .login-box {
+        width: 95%;
+  }
+  }
 </style>

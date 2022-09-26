@@ -85,21 +85,11 @@ export default {
 
 }
 
-.branding {
-    color: red;
-    font-size: 32px;
-    font-weight: bold;
-}
-
 svg {
     margin-top: 5px;
     margin-left: 20px;
     width: 110px;
     height: auto;
-}
-
-.gap {
-    margin-right: 30px;
 }
 
 a,

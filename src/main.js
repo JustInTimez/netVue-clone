@@ -14,3 +14,6 @@ store.startListen('abc', (prevState, newState) => {
 
     console.log(newState)
 })
+
+// TODO: Use JS to make the background of login the netflix image and then black background for home/dashboard page
+// background-image: url('/images/login-bg.jpg');
