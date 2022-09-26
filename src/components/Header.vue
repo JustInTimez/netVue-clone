@@ -1,36 +1,37 @@
 <script>
 import { ref } from "vue"
 export default {
-    setup() {
-        const navLinks = ref({
-            Home: {
-                name: "Home",
-                href: "/home",
-            },
-            TvShows: {
-                name: "TV Shows",
-                href: "#",
-            },
-            Movies: {
-                name: "Movies",
-                href: "#",
-            },
-            NewPopular: {
-                name: "New & Popular",
-                href: "#",
-            },
-            MyList: {
-                name: "My List",
-                href: "/my-list",
-            }
-        })
-        return { navLinks }
-    }
-}
+      data() {
+          return {
+            navLinks: ref({
+                Home: {
+                    name: "Home",
+                    href: "/home",
+                },
+                TvShows: {
+                    name: "TV Shows",
+                    href: "#",
+                },
+                Movies: {
+                    name: "Movies",
+                    href: "#",
+                },
+                NewPopular: {
+                    name: "New & Popular",
+                    href: "#",
+                },
+                MyList: {
+                    name: "My List",
+                    href: "/my-list",
+                }
+            })
+          }
+      },
+  }
 </script>
 
 <template>
-    <nav class="navbar navbar-expand-lg bg-dark">
+    <nav class="navbar navbar-expand-lg bg-dark position-sticky sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="/home"><svg viewBox="0 0 111 30" fill="#e50914" id="netflix-logo" width="100%"
                     height="100%">

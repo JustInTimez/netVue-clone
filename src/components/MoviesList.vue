@@ -5,21 +5,23 @@ import { store } from '../store.js'
 export default {
     props: ['label', 'pagination', 'previews'],
     data() {
-    return {}
-  },
+        return {
+            movies: [],
+        }
+    },
     components: {
         MoviePreview
     },
-    computed: {
-        movies() {
-            store.startListen(this.label, (prev, next) => {
-                if (prev.phase !== next.phase && next.phase === 'resting') {
-                    return next.movies.slice(0, 28)
-                }
-            })
-        }
-  }
+    mounted() {
+        store.startListen(this.label, (prev, next) => {
+            if (prev.phase !== next.phase && next.phase === 'resting') {
+                this.movies = next.movies.slice(0, 28)
+            }
+        })
+    }
 }
+
+
 </script>
 
 <style>
@@ -27,16 +29,12 @@ export default {
         box-sizing: border-box 
     }
 
-    div {
-        padding: 1rem;
-    }
-
     h2 {
         font-family: sans-serif;
         font-size: 48px;
     }
 
-    ul {
+    .heuheu {
         transition: transform 600ms;
         list-style: none;
         margin: 0;
@@ -50,24 +48,10 @@ export default {
 <div>
     <h2>{{label}}</h2>
 
-    <ul>
-        <li v-for="movie in movies">
-            <MoviePreview label="Horror" />
-        </li>
-    </ul>
+    <div class="d-flex heuheu">
+        <MoviePreview v-for="movie in movies" :key="movie.id" :label="movie.name" :image="movie.image" />
+    </div>
 
-    <!-- <ul>
-        ${this.movies.map(({ name, image }) => {
-            return /* html */ `
-                <li>
-                    <movie-preview 
-                        label="${name}" 
-                        image="${image}"
-                    ><movie-preview>
-                </li>`
-        }).join('')}
-    </ul> -->
-
-    <button></button>
+    <button>></button>
 </div>
 </template>
