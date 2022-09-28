@@ -1,4 +1,6 @@
 <script>
+    const userText = document.getElementById("userInput");
+    const passText = document.getElementById("userPassword");
 // export default {
 //     setup() {
 //         const userInput = document.getElementById('userInput')
@@ -24,22 +26,47 @@
 //         }
 //     }
 // }
-
+// export default {
+//     methods: {
+//         checkLogin(userText, passText) {
+//             let userText = document.getElementById("userInput")
+//             let passwordText = document.getElementById("userPassword")
+//             let userValid = false;
+//             let passwordValid = false;
+//             if (userInput.length != 0 && userInput.includes("@")) {
+//                 userValid = true;
+//                 document.getElementById("userError").classList.add("d-none");
+//             } else {
+//                 document.getElementById("userError").classList.remove("d-none");
+//             };
+//             if (passwordInput.length != 0) {
+//                 passwordValid = true;
+//                 document.getElementById("passwordError").classList.add("d-none");
+//             } else {
+//                 document.getElementById("passwordError").classList.remove("d-none");
+//             }
+//             if (userValid && passwordValid) {
+//                 return true;
+//             } else {
+//                 return false;
+//             }
+//             localStorage.setItem()
+//             this.$router.push({ path: "/home" })
+//         }
+//     }
+// }
 
 </script>
 
 <template>
-    <!-- <form @submit.prevent="submit"> -->
     <div class="login-box">
         <h2 class="mb-3 signInText">Sign In</h2>
         <div class="input-box">
-            <input id="userInput" type="text" placeholder="Email or phone number">
-            <p id="userError" class="d-none errorMsg">Please enter your valid email or phone number</p>
+            <input id="userInput" type="text" placeholder="Email address">
+            <p id="userError" class="d-none errorMsg">Please enter your valid email address</p>
             <input id="userPassword" type="password" placeholder="Password">
             <p id="passwordError" class="d-none errorMsg">Password incorrect</p>
-
-            <!-- @click="checkValidaition()" -->
-            <button type="button" class="btn btn-danger">Sign In</button>
+            <button type="button" class="btn btn-danger" v-on:click="checkLogin()">Sign In</button>
         </div>
         <!-- Just for fun and to seem visually the same, not going to be tying this to localStorage -->
         <div class="rememberMe-box">
@@ -139,6 +166,6 @@ input[type="color"]:focus,
 @media (max-width: 768px) {
     .login-box {
         width: 95%;
-  }
-  }
+    }
+}
 </style>

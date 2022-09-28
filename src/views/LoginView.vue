@@ -1,15 +1,14 @@
+<script setup>
+import LoginForm from "../components/LoginForm.vue"
+</script>
+
 <template>
   <div class="container">
     <LoginForm></LoginForm>
   </div>
 </template>
   
-<script setup>
-import LoginForm from "../components/LoginForm.vue"
-</script>
-  
 <style scoped>
-  
 .container {
   margin: 0 auto;
   padding: 0 5%;
