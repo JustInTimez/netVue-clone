@@ -34,7 +34,7 @@ export default {
         font-size: 48px;
     }
 
-    .heuheu {
+    .movie-preview {
         transition: transform 600ms;
         list-style: none;
         margin: 0;
@@ -48,7 +48,7 @@ export default {
 <div>
     <h2>{{label}}</h2>
 
-    <div class="d-flex heuheu">
+    <div class="d-flex movie-preview">
         <MoviePreview v-for="movie in movies" :key="movie.id" :label="movie.name" :image="movie.image" />
     </div>
 
