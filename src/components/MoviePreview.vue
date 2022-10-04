@@ -3,17 +3,47 @@ export default {
     props: ['label', 'image', 'wishlisted'],
     data() {
         return {
-
+            muted: true,
+            backgroundStyle: `background-image: url('${this.image}')`,
         }
+    },
+    methods: {
+        play() {
+            this.$refs.video.play()
+        },
+
+        pause() {
+            this.$refs.video.pause()
+        },
+
+        toggleMute() {
+            this.muted = !this.muted
+        },
     },
 }
 </script>
 
-<style>
-* { 
-    box-sizing: border-box
-}
+<template>
+    <div class="resting"
+        :style="backgroundStyle"
+        @mouseover="play()"
+        @mouseout="pause()"
+    >
+        <div class="preview">
+            <video 
+               ref="video"
+                :muted="muted"
+                    src="/public/videos/placeholder.mp4"
+                    loop
+            ></video>
+            <button @click="toggleMute()">{{this.muted ? 'Unmute' : 'Mute'}}</button>
+            <span class="label">{{this.label}}</span>
+        </div>
+    </div>
+</template>
 
+
+<style>
 .resting {
     border: 1px solid grey;
     padding: 1rem;
@@ -27,35 +57,30 @@ export default {
 }
 
 .preview {
-    display: none;
+    opacity: 0;
     position: absolute;
-    top: -50%;
-    left: -20%;
-    width: 140%;
-    height: 200%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: black;
     color: white;
+    transform: scale(1);
+    transition: transform 0.3s;
 }
 
 .resting:hover {
     z-index: 10;
 }
 
-:host([image]) .resting:hover > .preview {
-    display: block;
+.resting:hover>.preview {
+    opacity: 1;
+    transform: scale(1.3)
 }
 
 video {
     width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
 </style>
-
-<template>
-<!-- <div class="resting" style="background: url('{{image}}')">
-    <div class="preview">
-        <video src="/assets/placeholder.mp4" loop ></video>
-        <span class="label">{{ label }}</span>
-        <button class="wishlist">{{this.wishlisted ? 'Unlist' : 'Wishlist'}}</button>
-    </div>
-</div> -->
-</template>

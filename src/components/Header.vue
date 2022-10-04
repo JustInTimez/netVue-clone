@@ -66,8 +66,8 @@ export default {
                                 {{ link.name }}</router-link>
                         </span>
                     </li>
-                    <li id="logoutLink" class="nav-item">
-                        <a class="nav-link fw-semibold text-danger logout" href="#" hidden>Logout</a>                                       
+                    <li id="logoutLink" class="nav-item d-none">
+                        <a class="nav-link fw-semibold text-danger logout" href="/">Logout</a>                                       
                     </li>
 
                 </ul>
