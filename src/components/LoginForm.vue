@@ -1,72 +1,12 @@
-<script>
-    const userText = document.getElementById("userInput");
-    const passText = document.getElementById("userPassword");
-// export default {
-//     setup() {
-//         const userInput = document.getElementById('userInput')
-//         const passwordInput = document.getElementById('userPassword')
-
-//         // Check validation of input fields
-//         function checkValidaition() {
-//             console.log('sdfsdf');
-//             let userValid = false;
-//             let passwordValid = false;
-//             if (userInput.value.length != 0 && userInput.value.includes('@')) {
-//                 userValid = true;
-//                 document.getElementById("userError").classList.add("d-none");
-//             } else {
-//                 document.getElementById("userError").classList.remove("d-none");
-//             }
-//             if (passwordInput.value.length != 0) {
-//                 passwordValid = true;
-//                 document.getElementById("passwordError").classList.add("d-none");
-//             } else {
-//                 document.getElementById("passwordError").classList.remove("d-none");
-//             }
-//         }
-//     }
-// }
-// export default {
-//     methods: {
-//         checkLogin(userText, passText) {
-//             let userText = document.getElementById("userInput")
-//             let passwordText = document.getElementById("userPassword")
-//             let userValid = false;
-//             let passwordValid = false;
-//             if (userInput.length != 0 && userInput.includes("@")) {
-//                 userValid = true;
-//                 document.getElementById("userError").classList.add("d-none");
-//             } else {
-//                 document.getElementById("userError").classList.remove("d-none");
-//             };
-//             if (passwordInput.length != 0) {
-//                 passwordValid = true;
-//                 document.getElementById("passwordError").classList.add("d-none");
-//             } else {
-//                 document.getElementById("passwordError").classList.remove("d-none");
-//             }
-//             if (userValid && passwordValid) {
-//                 return true;
-//             } else {
-//                 return false;
-//             }
-//             localStorage.setItem()
-//             this.$router.push({ path: "/home" })
-//         }
-//     }
-// }
-
-</script>
-
 <template>
     <div class="login-box">
         <h2 class="mb-3 signInText">Sign In</h2>
         <div class="input-box">
-            <input id="userInput" type="text" placeholder="Email address">
+            <input id="userInput" type="text" placeholder="Email address" v-model="userInput">
             <p id="userError" class="d-none errorMsg">Please enter your valid email address</p>
-            <input id="userPassword" type="password" placeholder="Password">
+            <input id="userPassword" type="password" placeholder="Password" v-model="userPassword">
             <p id="passwordError" class="d-none errorMsg">Password incorrect</p>
-            <button type="button" class="btn btn-danger" v-on:click="checkLogin()">Sign In</button>
+            <button type="button" class="btn btn-danger" @click="checkLogin()">Sign In</button>
         </div>
         <!-- Just for fun and to seem visually the same, not going to be tying this to localStorage -->
         <div class="rememberMe-box">
@@ -78,6 +18,43 @@
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            userInput: '',
+            userPassword: '',
+        }
+    },
+    methods: {
+        checkLogin() {
+            let firstField = false
+            let secondField = false
+            if (this.userInput == '') {
+                document.getElementById("userError").classList.remove("d-none")
+            } else {
+                document.getElementById("userError").classList.add("d-none")
+                firstField = true 
+            }
+            if (this.userPassword == '') {
+                document.getElementById("passwordError").classList.remove("d-none")
+            } else {
+                document.getElementById("passwordError").classList.add("d-none")
+                secondField = true
+            }
+            if (firstField && secondField) {
+                let userDeets = {user: this.userInput, password: this.userPassword}
+                localStorage.setItem("user-saved", JSON.stringify(userDeets))
+                this.$router.push({ path: "/home" })
+                document.getElementById("logoutLink").classList.remove("d-none")
+            }
+        }
+    }
+}
+</script>
+
+
 
 <style scoped>
 .signInText {
