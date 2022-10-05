@@ -35,7 +35,7 @@ export default {
                 document.getElementById("userError").classList.remove("d-none")
             } else {
                 document.getElementById("userError").classList.add("d-none")
-                firstField = true 
+                firstField = true
             }
             if (this.userPassword == '') {
                 document.getElementById("passwordError").classList.remove("d-none")
@@ -44,7 +44,7 @@ export default {
                 secondField = true
             }
             if (firstField && secondField) {
-                let userDeets = {user: this.userInput, password: this.userPassword}
+                let userDeets = { user: this.userInput, password: this.userPassword }
                 localStorage.setItem("user-saved", JSON.stringify(userDeets))
                 this.$router.push({ path: "/home" })
                 document.getElementById("logoutLink").classList.remove("d-none")

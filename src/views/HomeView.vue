@@ -51,7 +51,8 @@
   </div>
 </template>
 
-<style>
+<style scoped>
+
 .baseButtons {
   border: 0px none;
   border-radius: 4px;
