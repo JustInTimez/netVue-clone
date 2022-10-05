@@ -49,19 +49,15 @@ export default {
                 document.getElementById("passwordError").classList.add("d-none")
                 secondField = true
             }
-            // Need to create bool for logged in or not (in localStorage) so that refresh does not remove the log out button!
             if (firstField && secondField) {
                 isloggedIn = true
-                let userDeets = { user: this.userInput, password: this.userPassword, loggedIn: this.isloggedIn }
+                let userDeets = { user: this.userInput, password: this.userPassword, loggedIn: isloggedIn }
                 localStorage.setItem("user-saved", JSON.stringify(userDeets))
                 document.getElementById("logoutLink").classList.remove("d-none")
                 this.$router.push({ path: "/home" })
                 return
             }
         },
-        isLoggedIn() {
-
-        }
     }
 }
 </script>

@@ -98,14 +98,14 @@ button:hover {
 h2 {
     font-family: sans-serif;
     font-size: 48px;
+    padding-left: 18px;
 }
 
 ul {
     transition: transform 600ms;
     list-style: none;
     margin: 0;
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding: 23px 20px 50px 20px;
     display: flex;
     transform: translateX(0px);
     overflow-x: scroll;

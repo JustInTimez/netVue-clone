@@ -24,9 +24,15 @@ export default {
                     name: "My List",
                     href: "/my-list",
                 }
-            })
+            }),
         }
     },
+    methods: {
+        logOut() {
+            let userDeets = { user: '', password: '', loggedIn: false }
+            localStorage.setItem("user-saved", JSON.stringify(userDeets))
+        }
+    }
 }
 </script>
 
@@ -66,8 +72,8 @@ export default {
                                 {{ link.name }}</router-link>
                         </span>
                     </li>
-                    <li id="logoutLink" class="nav-item d-none">
-                        <a class="nav-link fw-semibold text-danger logout" href="/">Logout</a>                                       
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold text-danger logout" id="logoutLink" href="/" @click="logOut()">Logout</a>                                       
                     </li>
 
                 </ul>
