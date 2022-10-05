@@ -17,7 +17,7 @@ const router = createRouter({
     {
       path: '/my-list',
       name: 'My List',
-      component: () => import('../views/MyListView.vue')
+      component: () => import('../views/WishlistView.vue')
     }
   ]
 })

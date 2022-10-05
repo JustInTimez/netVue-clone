@@ -19,18 +19,24 @@
     </div>
 </template>
 
+
 <script>
+
+// import { userDeets } from '../main.js'
+
 export default {
     data() {
         return {
             userInput: '',
             userPassword: '',
+            loggedIn: false,
         }
     },
     methods: {
         checkLogin() {
             let firstField = false
             let secondField = false
+            let isloggedIn = false
             if (this.userInput == '') {
                 document.getElementById("userError").classList.remove("d-none")
             } else {
@@ -43,12 +49,18 @@ export default {
                 document.getElementById("passwordError").classList.add("d-none")
                 secondField = true
             }
+            // Need to create bool for logged in or not (in localStorage) so that refresh does not remove the log out button!
             if (firstField && secondField) {
-                let userDeets = { user: this.userInput, password: this.userPassword }
+                isloggedIn = true
+                let userDeets = { user: this.userInput, password: this.userPassword, loggedIn: this.isloggedIn }
                 localStorage.setItem("user-saved", JSON.stringify(userDeets))
-                this.$router.push({ path: "/home" })
                 document.getElementById("logoutLink").classList.remove("d-none")
+                this.$router.push({ path: "/home" })
+                return
             }
+        },
+        isLoggedIn() {
+
         }
     }
 }

@@ -11,7 +11,7 @@
           MoviesList
       }
   }
-  </script>
+</script>
 
 <template>
   <div class="jumbotron jumbotron-fluid">
