@@ -21,8 +21,8 @@
       background-repeat: no-repeat;
       background-size: cover;
       background-attachment: fixed;
-    " class="text-left px-5 text-white pt-5">
-      <div class="mt-5">
+     " class="text-left text-white pt-5">
+      <div class="mt-5 px-5">
         <h1 class="mb-3 fw-bold display-1">
           COMING SOON
         </h1>
@@ -92,8 +92,7 @@
 
 /* Create the fade effect bottom of hero */
 .fadeBot {
-  margin: 145px;
-  height: 7.4rem;
-  background-image: linear-gradient(180deg, transparent, rgba(37, 37, 37 0.61), #111);
+  height: 4rem;
+  background: linear-gradient(180deg, transparent, rgba(33,37,41,1) 85%);
 }
 </style>
