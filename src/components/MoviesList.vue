@@ -41,40 +41,19 @@ export default {
 </script>
 
 <template>
-    <div>
-        <h2>{{label}}</h2>
-
-        <div class="d-flex movie-preview">
-            <MoviePreview v-for="movie in movies" :key="movie.id" :label="movie.name" :image="movie.image" />
-        </div>
-
-        <button>></button>
-    </div>
-    <div>
-        <h2>{{label}}</h2>
-
-        <div class="d-flex movie-preview">
-            <MoviePreview v-for="movie in movies" :key="movie.id" :label="movie.name" :image="movie.image" />
-        </div>
-
-        <button>></button>
-    </div>
-
-
-    <h2>{{ this.label }}</h2>
-    <div class="d-flex movie-preview">
+    <h2>{{ label }}</h2>
+    <div class="movie-preview">
         <ul ref='listRef'>
             <!-- ${this.movies.map(({ name, image }) => {
             <movie-preview image="${image}" label="${name}"></movie-preview>
             })} -->
 
             <li v-for="movie in movies">
-                <MoviePreview :key="movie.id" :label="movie.name" :image="movie.image" />
+                <MoviePreview :label="movie.name" :image="movie.image" />
             </li>
         </ul>
-
-        <button class="prev" @click="prev()" aria-label="Go to previous"><img src="/assets/icon.svg"></button>
-        <button class="next" @click="next()" aria-label="Go to next"><img src="/assets/icon.svg"></button>
+        <button class="prev" @click="prev()" aria-label="Go to previous"><img src="/images/arrow.svg"></button>
+        <button class="next" @click="next()" aria-label="Go to next"><img src="/images/arrow.svg"></button>
     </div>
 </template>
 
@@ -125,7 +104,8 @@ ul {
     transition: transform 600ms;
     list-style: none;
     margin: 0;
-    padding: 2rem;
+    padding-top: 80px;
+    padding-bottom: 80px;
     display: flex;
     transform: translateX(0px);
     overflow-x: scroll;

@@ -33,7 +33,7 @@ export default {
             <video 
                ref="video"
                 :muted="muted"
-                    src="/public/videos/placeholder.mp4"
+                    src="/videos/placeholder.mp4"
                     loop
             ></video>
             <button @click="toggleMute()">{{this.muted ? 'Unmute' : 'Mute'}}</button>
