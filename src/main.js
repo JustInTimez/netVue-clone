@@ -15,16 +15,15 @@ store.startListen('abc', (prevState, newState) => {
     console.log(newState)
 })
 
+
 // TODO: Use JS to make the background of login the netflix image and then black background for home/dashboard page
 // background-image: url('/images/login-bg.jpg');
 
-// let userDeets = JSON.parse(localStorage.getItem('user-saved'))
+let userDeets = JSON.parse(localStorage.getItem('user-saved'))
+let logoutLink = document.getElementById('logoutLink')
 
-// Checking if logged in or not for display of logout button
-
-// if (loggedIn = true) {
-//     document.getElementById('logoutLink').classList.add('d-none')
-// } else {
-//     document.getElementById('logoutLink').classList.remove('d-none')
-// }
-
+if (userDeets.loggedIn == true) {
+    logoutLink.classList.remove("d-none")
+} else {
+    logoutLink.classList.add("d-none")
+}
