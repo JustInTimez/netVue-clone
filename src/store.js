@@ -37,8 +37,7 @@ class Store {
 export const store = new Store()
 
 const init = async () => {
-    const response = await fetch('https://project-apis.codespace.co.za/api/movies')
-    // use this one later: https://netflix-mock-codespace.netlify.app/api.json
+    const response = await fetch('https://netflix-cs-api.netlify.app/')
 
     /** @type {{ data: import('./types').movie[] }} */
     const { data } = await response.json()

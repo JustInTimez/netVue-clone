@@ -8,12 +8,15 @@ const app = createApp(App)
 app.use(router)
 app.mount('#app')
 
-store.startListen('abc', (prevState, newState) => {
-    const moviesHasUpdated = prevState.movies !== newState.movies 
-    if (!moviesHasUpdated) return
+let wishlist = [];
+app.provide('wishlist', wishlist);
 
-    console.log(newState)
-})
+// store.startListen('abc', (prevState, newState) => {
+//     const moviesHasUpdated = prevState.movies !== newState.movies 
+//     if (!moviesHasUpdated) return
+
+//     console.log(newState)
+// })
 
 
 // TODO: Use JS to make the background of login the netflix image and then black background for home/dashboard page
@@ -23,6 +26,8 @@ let userDeets = JSON.parse(localStorage.getItem('user-saved'))
 let logoutLink = document.getElementById('logoutLink')
 
 if (userDeets.loggedIn == true) {
+    // this.$router.push('/home')
+    // window.location.replace("/home")
     logoutLink.classList.remove("d-none")
 } else {
     logoutLink.classList.add("d-none")
