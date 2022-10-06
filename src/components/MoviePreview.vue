@@ -1,48 +1,34 @@
 <script>
 export default {
+    inject: ['wishlist'],
     props: ['label', 'image', 'wishlisted'],
     data() {
         return {
-            muted: true,
             backgroundStyle: `background-image: url('${this.image}')`,
         }
     },
     methods: {
-        play() {
-            this.$refs.video.play()
+        wishlistAdd() {
+            console.log(this.wishlist)
         },
-
-        pause() {
-            this.$refs.video.pause()
+        wishlistRemove() {
         },
-
-        toggleMute() {
-            this.muted = !this.muted
-        },
-    },
+    }
 }
 </script>
 
 <template>
-    <div class="resting"
-        :style="backgroundStyle"
-        @mouseover="play()"
-        @mouseout="pause()"
-    >
+    <div class="resting container-fluid"
+        :style="backgroundStyle">
         <div class="preview bg-dark">
-            <div class="">
-                <video class="card-body p-0" 
-                ref="video"
-                    :muted="muted"
-                        src="/videos/placeholder.mp4"
-                        loop
-                ></video>
+            <div class="movieImage" :style="backgroundStyle">
             </div>
-            <div class="videoInfo bg-dark">
-                <span class="label">{{this.label}}</span><br>
-                <button @click="toggleMute()">{{this.muted ? "Unmute" : "Mute"}}</button>
-                <button @click="wishlistAdd()" class="wishlistButt"><img src="/images/add-new.svg"></button>
-                <button @click="wishlistRemove()" class="wishlistButt2"><img src="/images/minus.svg"></button>
+            <div class="movieInfo bg-dark d-flex align-items-center justify-content-between">
+                <span class="label text-truncate">{{this.label}}</span>
+                <div>
+                    <button @click="wishlistAdd()" title="Add to wishlist" class="wishlistBtn"><img src="/images/add-new.svg"></button>
+                    <button @click="wishlistRemove()" title="Remove from wishlist" class="wishlistBtn"><img src="/images/minus.svg"></button>
+                </div>
             </div>
         </div>
     </div>
@@ -51,12 +37,10 @@ export default {
 
 <style>
 
-.videoInfo {
+.movieInfo {
     position: absolute;
     bottom: 0;
-    margin-left: 15px;
-    /* left: 0;
-    right: 0; */
+    padding: 10px;
     width: 100%;
 }
 
@@ -70,6 +54,7 @@ export default {
     position: relative;
     height: 200px;
     width: 350px;
+    margin-right: 7px;
 }
 
 .preview {
@@ -77,12 +62,13 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    width: 80%;
-    height: 115%;
+    width: 100%;
+    height: 110%;
     background: black;
     color: white;
     transform: scale(1);
     transition: transform 0.3s;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .resting:hover {
@@ -94,9 +80,23 @@ export default {
     transform: scale(1.2);
 }
 
-video {
-    width: 80;
+.movieImage {
+    background-size: cover;
     height: 200px;
     object-fit: cover;
+}
+
+.wishlistBtn {
+    background: none;
+    border: none;
+}
+
+.wishlistBtn img {
+    width: 28px;
+    height: 28px;
+}
+
+.movieInfo .label {
+    max-width: 75%;
 }
 </style>

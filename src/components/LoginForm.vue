@@ -30,6 +30,7 @@ export default {
             userInput: '',
             userPassword: '',
             loggedIn: false,
+            wishlisted: '',
         }
     },
     methods: {
@@ -55,7 +56,6 @@ export default {
                 localStorage.setItem("user-saved", JSON.stringify(userDeets))
                 document.getElementById("logoutLink").classList.remove("d-none")
                 this.$router.push({ path: "/home" })
-                return
             }
         },
     }

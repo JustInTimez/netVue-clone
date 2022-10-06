@@ -45,9 +45,10 @@
     </div>
   </div>
   <div class="container-fluid">
-    <MoviesList label="Horror" pagination="0" previews="123,143,254,353,123" />
-    <MoviesList label="Romance" pagination="0" previews="123,143,254,353,123" />
-    <MoviesList label="Drama" pagination="0" previews="123,143,254,353,123" />
+    <MoviesList genre="Drama" pagination="0" previews="123,143,254,353,123" />
+    <MoviesList genre="Romance" pagination="0" previews="123,143,254,353,123" />
+    <MoviesList genre="Horror" pagination="0" previews="123,143,254,353,123" />
+    <MoviesList genre="Action" pagination="0" previews="123,143,254,353,123" />
   </div>
 </template>
 

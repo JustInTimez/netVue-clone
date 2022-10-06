@@ -3,7 +3,7 @@ import MoviePreview from './MoviePreview.vue'
 import { store } from '../store.js'
 
 export default {
-    props: ['label', 'pagination', 'previews'],
+    props: ['genre', 'pagination', 'previews'],
     data() {
         return {
             movies: [],
@@ -41,15 +41,11 @@ export default {
 </script>
 
 <template>
-    <h2>{{ label }}</h2>
+    <h2>{{ genre }}</h2>
     <div class="movie-preview">
         <ul ref='listRef'>
-            <!-- ${this.movies.map(({ name, image }) => {
-            <movie-preview image="${image}" label="${name}"></movie-preview>
-            })} -->
-
             <li v-for="movie in movies">
-                <MoviePreview :label="movie.name" :image="movie.image" />
+                <MoviePreview :label="movie.name" :image="movie.image" v-if="movie.genres[0].name == genre" />
             </li>
         </ul>
         <button class="prev" @click="prev()" aria-label="Go to previous"><img src="/images/arrow.svg"></button>
@@ -65,18 +61,19 @@ div {
 }
 
 img {
-    height: 24px;
-    width: 24px;
+    height: 34px;
+    width: 34px;
 }
 
 button {
+    border: none;
     position: absolute;
-    top: 50%;
+    top: 20%;
     background: black;
+    opacity: 0.5;
     fill: white;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 150px;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -87,11 +84,11 @@ button:hover {
 }
 
 .next {
-    right: 0;
+    right: 20px;
 }
 
 .prev {
-    left: 0;
+    left: 20px;
     transform: rotate(180deg)
 }
 
@@ -105,7 +102,7 @@ ul {
     transition: transform 600ms;
     list-style: none;
     margin: 0;
-    padding: 23px 20px 50px 20px;
+    padding: 30px 20px 50px 20px;
     display: flex;
     transform: translateX(0px);
     overflow-x: scroll;
