@@ -52,7 +52,7 @@ export default {
             }
             if (firstField && secondField) {
                 isloggedIn = true
-                let userDeets = { user: this.userInput, password: this.userPassword, loggedIn: isloggedIn }
+                let userDeets = { user: this.userInput, password: this.userPassword, loggedIn: isloggedIn, wishlist: [] }
                 localStorage.setItem("user-saved", JSON.stringify(userDeets))
                 document.getElementById("logoutLink").classList.remove("d-none")
                 this.$router.push({ path: "/home" })

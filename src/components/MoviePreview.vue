@@ -1,17 +1,36 @@
 <script>
 export default {
     inject: ['wishlist'],
-    props: ['label', 'image', 'wishlisted'],
+    props: ['movie'],
     data() {
         return {
-            backgroundStyle: `background-image: url('${this.image}')`,
+            backgroundStyle: `background-image: url('${this.movie.image}')`,
+            wishlisted: false,
+        }
+    },
+    computed: {
+        userDeets() {
+            return localStorage.getItem('user-saved') !== null ? JSON.parse(localStorage.getItem('user-saved')) : {}
         }
     },
     methods: {
-        wishlistAdd() {
+        saveWishlist() {
             console.log(this.wishlist)
+            if (this.userDeets.hasOwnProperty('wishlist')) {
+                this.userDeets.wishlist = this.wishlist
+                localStorage.setItem("user-saved", JSON.stringify(this.userDeets))
+            }
+        },
+        wishlistAdd() {
+            this.wishlist.push(this.movie.id)
+            this.saveWishlist()
         },
         wishlistRemove() {
+            let index = this.wishlist.indexOf(this.movie.id)
+            if (index > -1) { 
+                this.wishlist.splice(index, 1);
+                this.saveWishlist()
+            }
         },
     }
 }
@@ -24,7 +43,7 @@ export default {
             <div class="movieImage" :style="backgroundStyle">
             </div>
             <div class="movieInfo bg-dark d-flex align-items-center justify-content-between">
-                <span class="label text-truncate">{{this.label}}</span>
+                <span class="label text-truncate">{{this.movie.name}}</span>
                 <div>
                     <button @click="wishlistAdd()" title="Add to wishlist" class="wishlistBtn"><img src="/images/add-new.svg"></button>
                     <button @click="wishlistRemove()" title="Remove from wishlist" class="wishlistBtn"><img src="/images/minus.svg"></button>

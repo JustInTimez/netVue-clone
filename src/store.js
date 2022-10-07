@@ -23,7 +23,6 @@ class Store {
 
     stopListen(id) {
         this.listeners.filter(item => item.id !== id)
-        console.log(this.listeners)
     }
 
     constructor() {
@@ -39,7 +38,6 @@ export const store = new Store()
 const init = async () => {
     const response = await fetch('https://netflix-cs-api.netlify.app/')
 
-    /** @type {{ data: import('./types').movie[] }} */
     const { data } = await response.json()
     store.update({ phase: 'resting', movies: data })
 }
