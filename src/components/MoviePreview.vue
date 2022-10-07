@@ -10,7 +10,6 @@ export default {
     data() {
         return {
             backgroundStyle: `background-image: url('${this.movie.image}')`,
-            wishlisted: false,
             showModal: false,
         }
     },
@@ -21,7 +20,6 @@ export default {
     },
     methods: {
         saveWishlist() {
-            console.log(this.wishlist)
             if (this.userDeets.hasOwnProperty('wishlist')) {
                 this.userDeets.wishlist = this.wishlist
                 localStorage.setItem("user-saved", JSON.stringify(this.userDeets))
@@ -34,13 +32,11 @@ export default {
         wishlistRemove() {
             let index = this.wishlist.indexOf(this.movie.id)
             if (index > -1) { 
-                this.wishlist.splice(index, 1);
+                this.wishlist.splice(index, 1)
                 this.saveWishlist()
+                window.location.reload()
             }
         },
-        toggleInfoModal() {
-             
-        }
     }
 }
 </script>

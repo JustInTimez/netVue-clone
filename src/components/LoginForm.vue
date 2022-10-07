@@ -79,7 +79,6 @@ export default {
     border-radius: 3px;
     color: white;
     padding: 20px;
-
 }
 
 .login-box .input-box {
@@ -93,6 +92,7 @@ export default {
     margin: 10px;
     font-size: 1em;
     background-color: #333;
+    color: white;
 }
 
 .login-box .input-box button {
