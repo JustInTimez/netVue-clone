@@ -1,14 +1,11 @@
 <script>
 import MoviePreview from './MoviePreview.vue'
-import { store } from '../store.js'
+import { ref, onMounted } from "vue";
+import axios from "axios";
 
 export default {
+    inject: ['wishlist'],
     props: ['genre', 'pagination', 'previews'],
-    data() {
-        return {
-            movies: [],
-        }
-    },
     components: {
         MoviePreview
     },
@@ -26,17 +23,25 @@ export default {
             const newScroll = currentScroll - ulWidth
             this.$refs.listRef.scrollLeft = newScroll
         },
-
     },
-    mounted() {
-        store.startListen(this.label, (prev, next) => {
-            if (prev.phase !== next.phase && next.phase === 'resting') {
-                this.movies = next.movies.slice(0, 28)
-            }
-        })
-    }
-}
+    setup() {
+        let movies = ref([])
 
+        async function fetchMovies() {
+            const movieData = await axios
+                .get('https://netflix-cs-api.netlify.app/')
+                .then((res) => res.data.data);
+            movies.value = movieData;
+        }
+
+        onMounted(() => {
+            fetchMovies()
+        });
+        return {
+            movies
+        };
+    },
+}
 
 </script>
 
@@ -45,7 +50,8 @@ export default {
     <div class="movie-preview">
         <ul ref='listRef'>
             <li v-for="movie in movies">
-                <MoviePreview :label="movie.name" :image="movie.image" v-if="movie.genres[0].name == genre" />
+                <MoviePreview :movie="movie" v-if="genre == 'Wish List' && wishlist.includes(movie.id)" />
+                <MoviePreview :movie="movie" v-else-if="movie.genres[0].name == genre" />
             </li>
         </ul>
         <button class="prev" @click="prev()" aria-label="Go to previous"><img src="/images/arrow.svg"></button>

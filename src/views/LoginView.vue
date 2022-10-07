@@ -9,10 +9,6 @@ import LoginForm from "../components/LoginForm.vue"
 </template>
   
 <style scoped>
-body {
-  /* background-image: url('/images/login-bg.jpg'); */
-}
-
 #app {
   margin: 0;
   padding: 0;

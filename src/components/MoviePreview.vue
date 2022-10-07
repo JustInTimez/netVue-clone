@@ -1,17 +1,41 @@
 <script>
+import InfoModal from './InfoModal.vue'
+
 export default {
     inject: ['wishlist'],
-    props: ['label', 'image', 'wishlisted'],
+    props: ['movie'],
+    components: {
+        InfoModal
+    },
     data() {
         return {
-            backgroundStyle: `background-image: url('${this.image}')`,
+            backgroundStyle: `background-image: url('${this.movie.image}')`,
+            showModal: false,
         }
     },
+    computed: {
+        userDeets() {
+            return localStorage.getItem('user-saved') !== null ? JSON.parse(localStorage.getItem('user-saved')) : {}
+        },
+    },
     methods: {
+        saveWishlist() {
+            if (this.userDeets.hasOwnProperty('wishlist')) {
+                this.userDeets.wishlist = this.wishlist
+                localStorage.setItem("user-saved", JSON.stringify(this.userDeets))
+            }
+        },
         wishlistAdd() {
-            console.log(this.wishlist)
+            this.wishlist.push(this.movie.id)
+            this.saveWishlist()
         },
         wishlistRemove() {
+            let index = this.wishlist.indexOf(this.movie.id)
+            if (index > -1) { 
+                this.wishlist.splice(index, 1)
+                this.saveWishlist()
+                window.location.reload()
+            }
         },
     }
 }
@@ -24,14 +48,19 @@ export default {
             <div class="movieImage" :style="backgroundStyle">
             </div>
             <div class="movieInfo bg-dark d-flex align-items-center justify-content-between">
-                <span class="label text-truncate">{{this.label}}</span>
+                <span class="label text-truncate">{{this.movie.name}}</span>
                 <div>
-                    <button @click="wishlistAdd()" title="Add to wishlist" class="wishlistBtn"><img src="/images/add-new.svg"></button>
-                    <button @click="wishlistRemove()" title="Remove from wishlist" class="wishlistBtn"><img src="/images/minus.svg"></button>
+                    <button @click="wishlistAdd()" title="Add to wishlist" class="optionsBtn"><img src="/images/add-new.svg"></button>
+                    <button @click="wishlistRemove()" title="Remove from wishlist" class="optionsBtn"><img src="/images/minus.svg"></button>
+                    <button @click="showModal = true" title="More info" class="optionsBtn"><img src="/images/down.svg"></button>
                 </div>
             </div>
         </div>
     </div>
+
+    <transition name="modal">
+        <InfoModal v-if="showModal" :movie="movie" @close="showModal = false" />
+    </transition>
 </template>
 
 
@@ -86,17 +115,17 @@ export default {
     object-fit: cover;
 }
 
-.wishlistBtn {
+.optionsBtn {
     background: none;
     border: none;
 }
 
-.wishlistBtn img {
+.optionsBtn img {
     width: 28px;
     height: 28px;
 }
 
 .movieInfo .label {
-    max-width: 75%;
+    max-width: 65%;
 }
 </style>
