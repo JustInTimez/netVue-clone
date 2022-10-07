@@ -5,7 +5,7 @@ import axios from "axios";
 
 export default {
     inject: ['wishlist'],
-    props: ['genre', 'pagination', 'previews'],
+    props: ['genre', 'pagination'],
     components: {
         MoviePreview
     },
@@ -54,8 +54,8 @@ export default {
                 <MoviePreview :movie="movie" v-else-if="movie.genres[0].name == genre" />
             </li>
         </ul>
-        <button class="prev" @click="prev()" aria-label="Go to previous"><img src="/images/arrow.svg"></button>
-        <button class="next" @click="next()" aria-label="Go to next"><img src="/images/arrow.svg"></button>
+        <button class="prev d-none d-sm-flex" @click="prev()" aria-label="Go to previous"><img src="/images/arrow.svg"></button>
+        <button class="next d-none d-sm-flex" @click="next()" aria-label="Go to next"><img src="/images/arrow.svg"></button>
     </div>
 </template>
 
@@ -80,7 +80,6 @@ button {
     fill: white;
     width: 35px;
     height: 150px;
-    display: flex;
     align-items: center;
     cursor: pointer;
 }

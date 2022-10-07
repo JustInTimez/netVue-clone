@@ -1,16 +1,16 @@
 <script>
-  import MoviesList from '../components/MoviesList.vue'
-  
-  export default {
-      data() {
-          return {
-            
-          }
-      },
-      components: {
-          MoviesList
-      }
+import MoviesList from '../components/MoviesList.vue'
+
+export default {
+  data() {
+    return {
+
+    }
+  },
+  components: {
+    MoviesList
   }
+}
 </script>
 
 <template>
@@ -45,15 +45,41 @@
     </div>
   </div>
   <div class="container-fluid">
-    <MoviesList genre="Drama" pagination="0" previews="123,143,254,353,123" />
-    <MoviesList genre="Romance" pagination="0" previews="123,143,254,353,123" />
-    <MoviesList genre="Horror" pagination="0" previews="123,143,254,353,123" />
-    <MoviesList genre="Action" pagination="0" previews="123,143,254,353,123" />
+    <MoviesList genre="Drama" pagination="0" />
+    <MoviesList genre="Romance" pagination="0" />
+    <MoviesList genre="Horror" pagination="0" />
+    <MoviesList genre="Action" pagination="0" />
   </div>
+  <footer class="container-fluid bg-dark">
+    <div class="container">
+      <p class="text-white my-4 text-center">Questions? Call <a href="tel:0 801-000-723">0 810-000-723</a></p>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 text-center">
+        <ul class="flex-column footer-links">
+          <li class="mb-2"><a href="https://help.netflix.com/support/412" target="_blank" class="p-0 text-muted">FAQ</a>
+          </li>
+          <li class="mb-2"><a href="https://help.netflix.com/legal/termsofuse" target="_blank"
+              class="p-0 text-muted">Terms of Use</a></li>
+          <li class="mb-2"><a href="https://www.netflix.com/za/login#" target="_blank" class="p-0 text-muted">Cookie
+              Preferences</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-6 text-center">
+        <ul class="flex-column footer-links">
+          <li class="mb-2"><a href="https://help.netflix.com/" target="_blank" class="p-0 text-muted">Help Center</a>
+          </li>
+          <li class="mb-2"><a href="https://help.netflix.com/legal/privacy" target="_blank"
+              class="p-0 text-muted">Privacy</a></li>
+          <li class="mb-2"><a href="https://help.netflix.com/legal/corpinfo" target="_blank"
+              class="p-0 text-muted">Corporate Information</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 </template>
 
 <style scoped>
-
 .baseButtons {
   border: 0px none;
   border-radius: 4px;
@@ -94,6 +120,6 @@
 /* Create the fade effect bottom of hero */
 .fadeBot {
   height: 4rem;
-  background: linear-gradient(180deg, transparent, rgba(33,37,41,1) 85%);
+  background: linear-gradient(180deg, transparent, rgba(33, 37, 41, 1) 85%);
 }
 </style>
