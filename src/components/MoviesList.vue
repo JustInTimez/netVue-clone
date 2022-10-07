@@ -1,15 +1,11 @@
 <script>
 import MoviePreview from './MoviePreview.vue'
-import { store } from '../store.js'
+import { ref, onMounted } from "vue";
+import axios from "axios";
 
 export default {
     inject: ['wishlist'],
     props: ['genre', 'pagination', 'previews'],
-    data() {
-        return {
-            movies: [],
-        }
-    },
     components: {
         MoviePreview
     },
@@ -27,19 +23,25 @@ export default {
             const newScroll = currentScroll - ulWidth
             this.$refs.listRef.scrollLeft = newScroll
         },
-        fetchMovies() {
-            store.startListen(this.label, (prev, next) => {
-                if (prev.phase !== next.phase && next.phase === 'resting') {
-                    this.movies = next.movies.slice(0, 28)
-                }
-            })
-        }
     },
-    mounted() { 
-        this.fetchMovies();
-    } 
-}
+    setup() {
+        let movies = ref([])
 
+        async function fetchMovies() {
+            const movieData = await axios
+                .get('https://netflix-cs-api.netlify.app/')
+                .then((res) => res.data.data);
+            movies.value = movieData;
+        }
+
+        onMounted(() => {
+            fetchMovies()
+        });
+        return {
+            movies
+        };
+    },
+}
 
 </script>
 
