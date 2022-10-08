@@ -20,18 +20,8 @@
   bottom: 0;
 }
 
-#content-wrap {
-  /* Footer height */
-}
-
 @media (hover: hover) {
   a:hover {
     color: grey;
   }
-}
-
-@media (min-width: 1024px) {
-  body {}
-
-  #app {}
 }

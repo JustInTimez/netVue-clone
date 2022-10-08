@@ -13,7 +13,6 @@ export default {
 <template>
   <Header></Header>
   <RouterView />
-
 </template>
 
 <style scoped>

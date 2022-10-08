@@ -1,25 +1,15 @@
 # netVue-clone
 
-This template should help get you started developing with Vue 3 in Vite.
+A Netflix clone app created in Vue 3 that lets the user view movie details, scroll like in Netflix and the ability to add and remove from a wishlist of watch movies. I've tried my best to learn and use Vue 3 in a very short amount of time, and with limited knowledge on JS. There is a lot to be improved here.
 
-## Recommended IDE Setup
+## Description
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+* Login in screen
+* Browse screen using an API call to fetch movie data object and present/display to the user.
+* Hover over movies to display movie name and buttons to add/remove/view movie details.
+* Add movie to wishlist -> View My List page to see your selected movies displayed.
+* Login info, as well as wishlisted selections are stored in localStorage so if you close or refresh, all data is present.
+* Logging out will result in being pushed back to login page with login details cleared, but your wishlisted items stay in localStorage.
 
 ## Project Setup
 
@@ -27,14 +17,8 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Compile and Run locally
 
 ```sh
 npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
 ```

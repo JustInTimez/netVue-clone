@@ -10,6 +10,6 @@ export default {
 
 <template>
     <div class="container-fluid">
-      <MoviesList genre="Wish List" pagination="0" previews="123,143,254,353,123" />
+        <MoviesList genre="Wish List" pagination="0" />
     </div>
 </template>

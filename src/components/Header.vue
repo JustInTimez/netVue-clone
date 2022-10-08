@@ -4,6 +4,7 @@ export default {
     inject: ['wishlist'],
     data() {
         return {
+            /** Nav links */
             navLinks: ref({
                 Home: {
                     name: "Home",
@@ -29,8 +30,9 @@ export default {
         }
     },
     methods: {
+        /** When logging out, clear localStorage as required */
         logOut() {
-            let userDeets = { user: '', password: '', loggedIn: false, wishlist: this.wishlist}
+            let userDeets = { user: '', password: '', loggedIn: false, wishlist: this.wishlist }
             localStorage.setItem("user-saved", JSON.stringify(userDeets))
         }
     }
@@ -53,20 +55,6 @@ export default {
             </button>
             <div class="collapse navbar-collapse text-center" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2">
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Link
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li> -->
                     <li v-for="link in navLinks" :key="link.name" class="nav-item">
                         <span class="nav-link fw-semibold">
                             <router-link :to="link.href">
@@ -74,7 +62,8 @@ export default {
                         </span>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-semibold text-danger logout" id="logoutLink" href="/" @click="logOut()">Logout</a>                                       
+                        <a class="nav-link fw-semibold text-danger logout" id="logoutLink" href="/"
+                            @click="logOut()">Logout</a>
                     </li>
 
                 </ul>
@@ -132,7 +121,4 @@ a,
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(220, 53, 69, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
     border-color: #dc3545;
 }
-
-
-
 </style>
