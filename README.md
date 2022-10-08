@@ -4,7 +4,7 @@ A Netflix clone app created in Vue 3 that lets the user view movie details, scro
 
 ## Description
 
-* Login in screen
+* Login screen
 * Browse screen using an API call to fetch movie data object and present/display to the user.
 * Hover over movies to display movie name and buttons to add/remove/view movie details.
 * Add movie to wishlist -> View My List page to see your selected movies displayed.
