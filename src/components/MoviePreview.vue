@@ -19,6 +19,7 @@ export default {
         },
     },
     methods: {
+        /** Methods to save, add and remove from wishlist as well as to save that state to LocalStorage */
         saveWishlist() {
             if (this.userDeets.hasOwnProperty('wishlist')) {
                 this.userDeets.wishlist = this.wishlist
@@ -31,7 +32,7 @@ export default {
         },
         wishlistRemove() {
             let index = this.wishlist.indexOf(this.movie.id)
-            if (index > -1) { 
+            if (index > -1) {
                 this.wishlist.splice(index, 1)
                 this.saveWishlist()
                 window.location.reload()
@@ -42,17 +43,19 @@ export default {
 </script>
 
 <template>
-    <div class="resting container-fluid"
-        :style="backgroundStyle">
+    <div class="resting container-fluid" :style="backgroundStyle">
         <div class="preview bg-dark">
             <div class="movieImage" :style="backgroundStyle">
             </div>
             <div class="movieInfo bg-dark d-flex align-items-center justify-content-between">
                 <span class="label text-truncate">{{this.movie.name}}</span>
-                <div>
-                    <button @click="wishlistAdd()" title="Add to wishlist" class="optionsBtn"><img src="/images/add-new.svg"></button>
-                    <button @click="wishlistRemove()" title="Remove from wishlist" class="optionsBtn"><img src="/images/minus.svg"></button>
-                    <button @click="showModal = true" title="More info" class="optionsBtn"><img src="/images/down.svg"></button>
+                <div class="actionButtons">
+                    <button @click="wishlistAdd()" title="Add to wishlist" class="optionsBtn"><img
+                            src="/images/add-new.svg"></button>
+                    <button @click="wishlistRemove()" title="Remove from wishlist" class="optionsBtn"><img
+                            src="/images/minus.svg"></button>
+                    <button @click="showModal = true" title="More info" class="optionsBtn"><img
+                            src="/images/down.svg"></button>
                 </div>
             </div>
         </div>
@@ -65,7 +68,6 @@ export default {
 
 
 <style>
-
 .movieInfo {
     position: absolute;
     bottom: 0;
@@ -126,6 +128,31 @@ export default {
 }
 
 .movieInfo .label {
-    max-width: 65%;
+    max-width: 60%;
+    margin-left: 7px;
+}
+
+/* Media Queries */
+@media (max-width: 500px) {
+    .resting {
+        height: 150px;
+        width: 300px;
+        margin-right: 7px;
+    }
+
+    .resting:hover>.preview {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+    .movieImage {
+        background-size: cover;
+        height: 150px;
+        object-fit: cover;
+    }
+
+    .actionButtons {
+        display: flex;
+    }
 }
 </style>

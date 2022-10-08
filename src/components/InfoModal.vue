@@ -1,5 +1,6 @@
 <script>
 export default {
+    /** Include all movie.data object details so that it can be accessed in the template output below */
     props: ['movie'],
     emits: ['close'],
 }
@@ -16,20 +17,22 @@ export default {
                             <h1>{{ movie.name }}</h1>
                             <p class="mb-0"><small>Released: {{ movie.release_date }} </small></p>
                         </div>
-                        <button class="modal-close-button" @click="$emit('close')"><img class="closeButt" src="/images/cross.svg" width="24" height="24"></button>
+                        <button class="modal-close-button" @click="$emit('close')"><img class="closeButt"
+                                src="/images/cross.svg" width="24" height="24"></button>
                     </slot>
                 </div>
 
                 <div class="modal-body">
                     <slot name="body">
                         <p class="mb-0"> {{ movie.description }}</p>
-                        <p> {{'Duration: ' +  movie.duration + 'mins' }}</p>
+                        <p> {{'Duration: ' + movie.duration + 'mins' }}</p>
                     </slot>
                 </div>
 
                 <div class="modal-footer">
                     <slot name="footer">
-                        <p class="border border-white rounded px-1 mx-2" v-for="genre in movie.genres"> {{ genre.name}}</p>
+                        <p class="border border-white rounded px-1 mx-2" v-for="genre in movie.genres"> {{ genre.name}}
+                        </p>
                     </slot>
                 </div>
             </div>
@@ -38,11 +41,11 @@ export default {
 </template>
 
 <style scoped>
-
 .headerImage {
     width: 300px;
     height: 300px;
 }
+
 .modal-mask {
     position: fixed;
     z-index: 9999;

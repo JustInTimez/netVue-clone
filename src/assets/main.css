@@ -25,9 +25,3 @@
     color: grey;
   }
 }
-
-@media (min-width: 1024px) {
-  body {}
-
-  #app {}
-}

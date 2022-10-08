@@ -1,32 +1,8 @@
-<template>
-    <div class="login-box">
-        <h2 class="mb-3 signInText">Sign In</h2>
-        <div class="input-box">
-            <input id="userInput" type="text" placeholder="Email address" v-model="userInput">
-            <p id="userError" class="d-none errorMsg">Please enter your valid email address</p>
-            <input id="userPassword" type="password" placeholder="Password" v-model="userPassword">
-            <p id="passwordError" class="d-none errorMsg">Password incorrect</p>
-            <button type="button" class="btn btn-danger" @click="checkLogin()">Sign In</button>
-        </div>
-        <!-- Just for fun and to seem visually the same, not going to be tying this to localStorage -->
-        <div class="rememberMe-box">
-            <div>
-                <input type="checkbox">
-                <label for="">Remember Me?</label>
-            </div>
-            <span>Need help?</span>
-        </div>
-    </div>
-</template>
-
-
 <script>
-
-// import { userDeets } from '../main.js'
-
 export default {
     data() {
         return {
+            /** Grab inputs and states for localStorage and checking login. */
             userInput: '',
             userPassword: '',
             loggedIn: false,
@@ -34,6 +10,7 @@ export default {
         }
     },
     methods: {
+        /** Check to make sure fields are not empty, save login details to localStorage and the push user to /home page after login. */
         checkLogin() {
             let firstField = false
             let secondField = false
@@ -62,7 +39,26 @@ export default {
 }
 </script>
 
-
+<template>
+    <div class="login-box">
+        <h2 class="mb-3 signInText">Sign In</h2>
+        <div class="input-box">
+            <input id="userInput" type="text" placeholder="Email address" v-model="userInput">
+            <p id="userError" class="d-none errorMsg">Please enter your valid email address</p>
+            <input id="userPassword" type="password" placeholder="Password" v-model="userPassword">
+            <p id="passwordError" class="d-none errorMsg">Password incorrect</p>
+            <button type="button" class="btn btn-danger" @click="checkLogin()">Sign In</button>
+        </div>
+        <!-- Just for fun and to seem visually the same, not going to be tying this to localStorage -->
+        <div class="rememberMe-box">
+            <div>
+                <input type="checkbox">
+                <label for="">Remember Me?</label>
+            </div>
+            <span>Need help?</span>
+        </div>
+    </div>
+</template>
 
 <style scoped>
 .signInText {
@@ -122,18 +118,8 @@ export default {
 input:focus,
 input[type="text"]:focus,
 input[type="password"]:focus,
-input[type="datetime"]:focus,
-input[type="datetime-local"]:focus,
-input[type="date"]:focus,
-input[type="month"]:focus,
-input[type="time"]:focus,
-input[type="week"]:focus,
-input[type="number"]:focus,
 input[type="email"]:focus,
-input[type="url"]:focus,
-input[type="search"]:focus,
-input[type="tel"]:focus,
-input[type="color"]:focus,
+
 .uneditable-input:focus {
     border-color: none;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(129, 129, 129, 0.603);

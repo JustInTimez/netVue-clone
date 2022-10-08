@@ -27,7 +27,7 @@ export default {
           COMING SOON
         </h1>
         <p class="mb-4 fw-semibold lead">
-          Check out these upcoming titles!
+          Check out this upcoming title!
         </p>
 
         <div>
