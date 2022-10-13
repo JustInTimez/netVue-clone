@@ -6,17 +6,17 @@ const router = createRouter({
   /** Basic routing structure  */
   routes: [
     {
-      path: '/',
+      path: '/netVue-clone/',
       name: 'login',
       component: LoginView
     },
     {
-      path: '/home',
+      path: '/netVue-clone/home',
       name: 'Home',
       component: () => import('../views/HomeView.vue')
     },
     {
-      path: '/my-list',
+      path: '/netVue-clone/my-list',
       name: 'My List',
       component: () => import('../views/WishlistView.vue')
     }
