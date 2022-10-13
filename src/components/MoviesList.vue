@@ -26,12 +26,18 @@ export default {
     },
     setup() {
         let movies = ref([])
+        let hasError = ref(false)
 
         async function fetchMovies() {
             const movieData = await axios
                 /** Grab info from Schalk's hosted data object  */
                 .get('https://netflix-cs-api.netlify.app/')
-                .then((res) => res.data.data);
+                .then((res) => res.data.data)
+                .catch(
+                    function() {
+                        hasError.value = true
+                    }
+                )
             movies.value = movieData;
         }
 
@@ -39,7 +45,8 @@ export default {
             fetchMovies()
         });
         return {
-            movies
+            movies,
+            hasError
         };
     },
 }
@@ -47,6 +54,10 @@ export default {
 
 <template>
     <h2>{{ genre }}</h2>
+    <template v-if="hasError">
+        <h5 class="error">Could not fetch data, please refresh the page to try again!</h5>
+    </template>
+    <template v-else>
     <div class="movie-preview">
         <ul ref='listRef'>
             <li v-for="movie in movies">
@@ -59,6 +70,7 @@ export default {
         <button class="next d-none d-sm-flex" @click="next()" aria-label="Go to next"><img
                 src="/images/arrow.svg"></button>
     </div>
+    </template>
 </template>
 
 <style scoped>
@@ -118,5 +130,10 @@ ul {
 
 ul::-webkit-scrollbar {
     display: none;
+}
+
+.error {
+    padding-left: 18px;
+    padding-bottom: 18px;
 }
 </style>

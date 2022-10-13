@@ -7,8 +7,9 @@ const app = createApp(App)
 app.use(router)
 
 // make wishlist available to app
-let userDeets = JSON.parse(localStorage.getItem('user-saved'))
-app.provide('wishlist', userDeets.wishlist)
+let userDeets = localStorage.getItem('user-saved') !== null ? JSON.parse(localStorage.getItem('user-saved')) : {}
+let wishlist = userDeets.hasOwnProperty('wishlist') ? userDeets.wishlist : []
+app.provide('wishlist', wishlist)
 
 // register modal component
 app.component("modal", {
@@ -24,3 +25,7 @@ if (userDeets.loggedIn == true) {
     logoutLink.classList.add("d-none")
 }
 
+// Catch any general errors and refresh the page
+window.onerror = function () {
+    window.location.reload()
+}
