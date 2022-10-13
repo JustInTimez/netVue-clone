@@ -1,6 +1,7 @@
 {
   "name": "netvue-clone",
   "version": "0.0.0",
+  "main": "app.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
