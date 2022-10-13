@@ -1,6 +1,6 @@
 <script>
 export default {
-    /** Include all movie.data object details so that it can be accessed in the template output below */
+    /** Include all movie.data object details so that it can be accessed in the template output below. Emit captures the close click event*/
     props: ['movie'],
     emits: ['close'],
 }

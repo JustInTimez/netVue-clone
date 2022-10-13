@@ -59,7 +59,7 @@ export default {
     </template>
     <template v-else>
     <div class="movie-preview">
-        <ul ref='listRef'>
+        <ul class="movieContainer" ref='listRef'>
             <li v-for="movie in movies">
                 <MoviePreview :movie="movie" v-if="genre == 'Wish List' && wishlist.includes(movie.id)" />
                 <MoviePreview :movie="movie" v-else-if="movie.genres[0].name == genre" />
@@ -132,8 +132,24 @@ ul::-webkit-scrollbar {
     display: none;
 }
 
+.movieContainer {
+        min-height: 280px;
+    }
+
 .error {
     padding-left: 18px;
     padding-bottom: 18px;
+}
+
+@media (max-width: 500px) {
+    .movieContainer {
+        min-height: 230px;
+    }
+}
+
+@media (max-width: 360px) {
+    .movieContainer {
+        min-height: 230px;
+    }
 }
 </style>
