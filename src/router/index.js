@@ -1,7 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import LoginView from '../views/LoginView.vue'
-import HomeView from '../views/HomeView.vue'
-import WishlistView from '../views/WishlistView.vue'
+// import LoginView from '../views/LoginView.vue'
+
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -10,17 +9,17 @@ const router = createRouter({
     {
       path: '/',
       name: 'login',
-      component: LoginView
+      component: () => import('../views/LoginView.vue')
     },
     {
       path: '/home',
       name: 'Home',
-      component: WishlistView
+      component: () => import('../views/HomeView.vue')
     },
     {
       path: '/my-list',
       name: 'My List',
-      component: WishlistView
+      component: () => import('../views/WishlistView.vue')
     }
   ]
 })
