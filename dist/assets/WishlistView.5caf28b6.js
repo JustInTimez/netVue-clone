@@ -1,0 +1,1 @@
+import{M as s}from"./MoviesList.765b7e88.js";import{_ as e,r as t,o as n,c as i,b as c}from"./index.7b06fed1.js";const r={components:{MoviesList:s}},a={class:"container-fluid"};function p(_,m,d,f,l,u){const o=t("MoviesList");return n(),i("div",a,[c(o,{genre:"Wish List",pagination:"0"})])}const L=e(r,[["render",p]]);export{L as default};
