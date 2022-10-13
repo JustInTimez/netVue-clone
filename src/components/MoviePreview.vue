@@ -68,6 +68,10 @@ export default {
 
 
 <style>
+.actionButtons {
+    display: flex;
+}
+
 .movieInfo {
     position: absolute;
     bottom: 0;
@@ -83,7 +87,7 @@ export default {
     background-position: center;
     cursor: pointer;
     position: relative;
-    height: 200px;
+    min-height: 200px;
     width: 350px;
     margin-right: 7px;
 }
@@ -113,7 +117,7 @@ export default {
 
 .movieImage {
     background-size: cover;
-    height: 200px;
+    min-height: 200px;
     object-fit: cover;
 }
 
@@ -135,24 +139,23 @@ export default {
 /* Media Queries */
 @media (max-width: 500px) {
     .resting {
-        height: 150px;
+        min-height: 150px;
         width: 300px;
         margin-right: 7px;
     }
 
-    .resting:hover>.preview {
-        opacity: 1;
-        transform: scale(1.1);
-    }
-
     .movieImage {
-        background-size: cover;
-        height: 150px;
-        object-fit: cover;
+        min-height: 150px;
+    }
+}
+
+@media (max-width: 360px) {
+    .movieImage {
+        min-height: 100px;
     }
 
-    .actionButtons {
-        display: flex;
+    .resting {
+        width: 260px;
     }
 }
 </style>

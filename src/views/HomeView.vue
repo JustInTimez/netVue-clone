@@ -82,17 +82,10 @@ export default {
 <style scoped>
 .baseButtons {
   border: 0px none;
-  border-radius: 4px;
   display: flex;
   opacity: 1;
-  padding: 0.8rem;
-  padding-right: 0.8rem;
-  padding-left: 0.8rem;
   position: relative;
   user-select: none;
-  word-break: break-word;
-  white-space: nowrap;
-  padding-left: 2rem;
 }
 
 .butts {
@@ -101,7 +94,7 @@ export default {
   outline: none;
   border: none;
   font-weight: 700;
-  border-radius: 0.2vw;
+  border-radius: 0.3vw;
   padding-left: 2rem;
   padding-right: 2rem;
   margin-right: 1rem;
