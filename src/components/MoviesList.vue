@@ -147,7 +147,6 @@ ul::-webkit-scrollbar {
     }
 }
 
-
 @media (max-width: 360px) {
     .movieContainer {
         min-height: 230px;
