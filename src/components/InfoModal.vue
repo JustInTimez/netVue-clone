@@ -1,6 +1,8 @@
 <script>
 export default {
-    /** Include all movie.data object details so that it can be accessed in the template output below. Emit captures the close click event*/
+    /** Include all movie.data object details so that it can be accessed in the template output below. 
+     * Emit captures the close click event
+     */
     props: ['movie'],
     emits: ['close'],
 }
@@ -67,7 +69,7 @@ export default {
     display: flex;
     flex-flow: column;
     opacity: 0.9;
-    width: 80rem;
+    max-width: 70rem;
     margin: 0px auto;
     padding: 20px 30px;
     background-color: #fff;
@@ -104,6 +106,24 @@ export default {
 .modal-leave-active .modal-container {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
+}
+
+/* Media Queries */
+@media (max-width: 1250px) {
+    .modal-container {
+        max-width: 50rem;
+    }
+
+}
+
+@media (max-width: 935px) {
+    .modal-container {
+        max-width: 30rem;
+    }
+
+    .modal-wrapper {
+        max-height: 20rem;
+    }
 }
 </style>
     

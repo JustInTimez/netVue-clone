@@ -34,7 +34,7 @@ export default {
                 .get('https://netflix-cs-api.netlify.app/')
                 .then((res) => res.data.data)
                 .catch(
-                    function() {
+                    function () {
                         hasError.value = true
                     }
                 )
@@ -58,18 +58,18 @@ export default {
         <h5 class="error">Could not fetch data, please refresh the page to try again!</h5>
     </template>
     <template v-else>
-    <div class="movie-preview">
-        <ul class="movieContainer" ref='listRef'>
-            <li v-for="movie in movies">
-                <MoviePreview :movie="movie" v-if="genre == 'Wish List' && wishlist.includes(movie.id)" />
-                <MoviePreview :movie="movie" v-else-if="movie.genres[0].name == genre" />
-            </li>
-        </ul>
-        <button class="prev d-none d-sm-flex" @click="prev()" aria-label="Go to previous"><img
-                src="/images/arrow.svg"></button>
-        <button class="next d-none d-sm-flex" @click="next()" aria-label="Go to next"><img
-                src="/images/arrow.svg"></button>
-    </div>
+        <div class="movie-preview">
+            <ul class="movieContainer" ref='listRef'>
+                <li v-for="movie in movies">
+                    <MoviePreview :movie="movie" v-if="genre == 'Wish List' && wishlist.includes(movie.id)" />
+                    <MoviePreview :movie="movie" v-else-if="movie.genres[0].name == genre" />
+                </li>
+            </ul>
+            <button class="prev d-none d-sm-flex" @click="prev()" aria-label="Go to previous"><img
+                    src="/images/arrow.svg"></button>
+            <button class="next d-none d-sm-flex" @click="next()" aria-label="Go to next"><img
+                    src="/images/arrow.svg"></button>
+        </div>
     </template>
 </template>
 
@@ -133,23 +133,30 @@ ul::-webkit-scrollbar {
 }
 
 .movieContainer {
-        min-height: 280px;
-    }
+    min-height: 280px;
+}
 
 .error {
     padding-left: 18px;
     padding-bottom: 18px;
 }
 
+/* Media Queries */
+@media (max-width: 935px) {
+    .movieContainer {
+        min-height: 330px;
+    }
+}
+
 @media (max-width: 500px) {
     .movieContainer {
-        min-height: 230px;
+        min-height: 320px;
     }
 }
 
 @media (max-width: 360px) {
     .movieContainer {
-        min-height: 230px;
+        min-height: 325px;
     }
 }
 </style>
